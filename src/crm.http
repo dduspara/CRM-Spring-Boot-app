@@ -1,0 +1,37 @@
+### =========================
+### AUTH - LOGIN
+### =========================
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "1234"
+}
+
+### =========================
+### PRODAVA - SVE PRODAJE
+### =========================
+GET http://localhost:8080/prodaje
+
+### =========================
+### DODAJ PRODAJU
+### =========================
+POST http://localhost:8080/prodaje
+Content-Type: application/json
+
+{
+  "kolicina": 2,
+  "datum": "2026-04-28",
+  "kupac": {
+    "id": 1
+  },
+  "artikl": {
+    "id": 1
+  }
+}
+
+### =========================
+### UKUPNO PO KUPCU (RASPON DATUMA)
+### =========================
+GET http://localhost:8080/prodaje/kupac/1/ukupno?from=2026-01-01&to=2026-12-31
