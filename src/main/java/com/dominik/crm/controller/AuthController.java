@@ -1,7 +1,6 @@
 package com.dominik.crm.controller;
 
 import com.dominik.crm.entity.User;
-import com.dominik.crm.repository.UserRepository;
 import com.dominik.crm.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
