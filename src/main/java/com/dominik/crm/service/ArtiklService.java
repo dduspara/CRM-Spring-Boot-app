@@ -15,7 +15,7 @@ public class ArtiklService {
     public Artikl spremi (Artikl artikl) {
         return artiklRepository.save(artikl);
     }
-    public List<Artikl> svi() {
+    public List<Artikl> sviArtikli() {
         return artiklRepository.findAll();
     }
 }

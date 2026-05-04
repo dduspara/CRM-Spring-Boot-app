@@ -1,5 +1,7 @@
 package com.dominik.crm.controller;
 
+import com.dominik.crm.dto.KupacRequest;
+import com.dominik.crm.dto.KupacResponse;
 import com.dominik.crm.service.KupacService;
 import com.dominik.crm.service.ProdajaService;
 import com.dominik.crm.entity.Kupac;
@@ -17,13 +19,53 @@ public class KupacController {
         this.prodajaService = prodajaService;
     }
     @GetMapping
-    public List<Kupac> sviKupci() {
-        return kupacService.sviKupci();
+    public List<KupacResponse> sviKupci() {
+
+        return kupacService.sviKupci()
+                .stream()
+                .map(kupac -> new KupacResponse(
+                        kupac.getId(),
+                        kupac.getIme(),
+                        kupac.getPrezime(),
+                        kupac.getOib(),
+                        kupac.getAdresa(),
+                        kupac.getTelefon(),
+                        kupac.getNazivTvrtke(),
+                        kupac.getEmail(),
+                        kupac.getWeb(),
+                        kupac.getKontaktOsoba()
+
+                ))
+                .toList();
     }
 
     @PostMapping
-    public Kupac dodajKupca (@RequestBody Kupac kupac) {
-        return kupacService.spremiKupca(kupac);
+    public KupacResponse dodajKupca (@RequestBody KupacRequest request) {
+        Kupac kupac = new Kupac();
+        kupac.setIme(request.getIme());
+        kupac.setPrezime(request.getPrezime());
+        kupac.setOib(request.getOib());
+        kupac.setAdresa(request.getAdresa());
+        kupac.setTelefon(request.getTelefon());
+        kupac.setNazivTvrtke(request.getNazivTvrtke());
+        kupac.setEmail(request.getEmail());
+        kupac.setWeb(request.getWeb());
+        kupac.setKontaktOsoba(request.getKontaktOsoba());
+
+
+        Kupac spremljenKupac = kupacService.spremiKupca(kupac);
+        return new KupacResponse(
+                spremljenKupac.getId(),
+                spremljenKupac.getIme(),
+                spremljenKupac.getPrezime(),
+                spremljenKupac.getOib(),
+                spremljenKupac.getAdresa(),
+                spremljenKupac.getTelefon(),
+                spremljenKupac.getNazivTvrtke(),
+                spremljenKupac.getEmail(),
+                spremljenKupac.getWeb(),
+                spremljenKupac.getKontaktOsoba()
+        );
     }
 
     @GetMapping("/{id}/ukupna-prodaja")
