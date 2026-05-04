@@ -1,13 +1,13 @@
 package com.dominik.crm.controller;
 
+import com.dominik.crm.dto.LoginRequest;
+import com.dominik.crm.dto.LoginResponse;
 import com.dominik.crm.entity.User;
 import com.dominik.crm.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
@@ -21,16 +21,15 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    public Map<String, Object> login (@RequestBody User loginRequest) {
+    public LoginResponse login(@RequestBody LoginRequest request){
         User user = userService.login(
-                loginRequest.getUsername(),
-                loginRequest.getPassword()
+                request.getUsername(),
+                request.getPassword()
         );
-        return Map.of(
-                "message", "LOGIN OK",
-                "role", user.getRole(),
-                "username", user.getUsername()
+        return new LoginResponse(
+                "LOGIN OK",
+                user.getRole(),
+                user.getUsername()
         );
-
     }
 }
