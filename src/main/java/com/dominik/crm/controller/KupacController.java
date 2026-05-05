@@ -33,7 +33,8 @@ public class KupacController {
                         kupac.getNazivTvrtke(),
                         kupac.getEmail(),
                         kupac.getWeb(),
-                        kupac.getKontaktOsoba()
+                        kupac.getKontaktOsoba(),
+                        kupac.getTip()
 
                 ))
                 .toList();
@@ -51,6 +52,7 @@ public class KupacController {
         kupac.setEmail(request.getEmail());
         kupac.setWeb(request.getWeb());
         kupac.setKontaktOsoba(request.getKontaktOsoba());
+        kupac.setTip(request.getTip());
 
 
         Kupac spremljenKupac = kupacService.spremiKupca(kupac);
@@ -64,7 +66,8 @@ public class KupacController {
                 spremljenKupac.getNazivTvrtke(),
                 spremljenKupac.getEmail(),
                 spremljenKupac.getWeb(),
-                spremljenKupac.getKontaktOsoba()
+                spremljenKupac.getKontaktOsoba(),
+                spremljenKupac.getTip()
         );
     }
 

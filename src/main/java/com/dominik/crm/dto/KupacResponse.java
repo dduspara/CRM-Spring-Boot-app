@@ -1,5 +1,7 @@
 package com.dominik.crm.dto;
 
+import com.dominik.crm.entity.TipKupca;
+
 public class KupacResponse {
     private Long id;
     private String ime;
@@ -11,8 +13,9 @@ public class KupacResponse {
     private String email;
     private String web;
     private String kontaktOsoba;
+    private TipKupca tip;
 
-    public KupacResponse(Long id, String ime, String prezime, String oib, String adresa, String telefon, String nazivTvrtke, String email, String web, String kontaktOsoba) {
+    public KupacResponse(Long id, String ime, String prezime, String oib, String adresa, String telefon, String nazivTvrtke, String email, String web, String kontaktOsoba, TipKupca tip) {
         this.id = id;
         this.ime = ime;
         this.prezime = prezime;
@@ -23,6 +26,7 @@ public class KupacResponse {
         this.email = email;
         this.web = web;
         this.kontaktOsoba = kontaktOsoba;
+        this.tip = tip;
     }
 
     public Long getId() {
@@ -63,5 +67,9 @@ public class KupacResponse {
 
     public String getKontaktOsoba() {
         return kontaktOsoba;
+    }
+
+    public TipKupca getTip() {
+        return tip;
     }
 }

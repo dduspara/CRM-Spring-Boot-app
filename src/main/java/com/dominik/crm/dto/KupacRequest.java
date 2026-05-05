@@ -1,5 +1,7 @@
 package com.dominik.crm.dto;
 
+import com.dominik.crm.entity.TipKupca;
+
 public class KupacRequest {
     private String ime;
     private String prezime;
@@ -10,6 +12,7 @@ public class KupacRequest {
     private String email;
     private String web;
     private String kontaktOsoba;
+    private TipKupca tip;
 
 
     public String getIme() {
@@ -82,5 +85,13 @@ public class KupacRequest {
 
     public void setKontaktOsoba(String kontaktOsoba) {
         this.kontaktOsoba = kontaktOsoba;
+    }
+
+    public TipKupca getTip() {
+        return tip;
+    }
+
+    public void setTip(TipKupca tip) {
+        this.tip = tip;
     }
 }
