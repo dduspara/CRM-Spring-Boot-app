@@ -4,6 +4,7 @@ import com.dominik.crm.dto.ArtiklRequest;
 import com.dominik.crm.dto.ArtiklResponse;
 import com.dominik.crm.service.ArtiklService;
 import com.dominik.crm.entity.Artikl;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class ArtiklController {
                 .toList();
     }
     @PostMapping
-    public ArtiklResponse dodajArtikl(@RequestBody ArtiklRequest request) {
+    public ArtiklResponse dodajArtikl(@Valid @RequestBody ArtiklRequest request) {
         Artikl artikl = new Artikl();
 
         artikl.setNaziv(request.getNaziv());

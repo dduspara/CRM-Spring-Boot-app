@@ -1,17 +1,23 @@
 package com.dominik.crm.dto;
 
 import com.dominik.crm.entity.TipKupca;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class KupacRequest {
     private String ime;
     private String prezime;
+    @NotBlank(message = "OIB je obavezan.")
     private String oib;
     private String adresa;
     private String telefon;
     private String nazivTvrtke;
+    @Email(message = "Email nije ispravan.")
     private String email;
     private String web;
     private String kontaktOsoba;
+    @NotNull(message = "Tip kupca je obavezan.")
     private TipKupca tip;
 
 

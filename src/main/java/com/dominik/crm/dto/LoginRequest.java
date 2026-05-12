@@ -1,7 +1,11 @@
 package com.dominik.crm.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class LoginRequest {
+    @NotBlank(message = "Username je obavezan.")
     private String username;
+    @NotBlank(message = "Password je obavezan.")
     private String password;
 
     public String getUsername(){

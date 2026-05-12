@@ -5,6 +5,7 @@ import com.dominik.crm.dto.KupacResponse;
 import com.dominik.crm.service.KupacService;
 import com.dominik.crm.service.ProdajaService;
 import com.dominik.crm.entity.Kupac;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class KupacController {
     }
 
     @PostMapping
-    public KupacResponse dodajKupca (@RequestBody KupacRequest request) {
+    public KupacResponse dodajKupca (@Valid @RequestBody KupacRequest request) {
         Kupac kupac = new Kupac();
         kupac.setIme(request.getIme());
         kupac.setPrezime(request.getPrezime());

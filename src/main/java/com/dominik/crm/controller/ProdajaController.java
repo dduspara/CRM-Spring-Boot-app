@@ -6,6 +6,7 @@ import com.dominik.crm.entity.Artikl;
 import com.dominik.crm.entity.Kupac;
 import com.dominik.crm.service.ProdajaService;
 import com.dominik.crm.entity.Prodaja;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -38,7 +39,7 @@ public class ProdajaController {
     }
 
     @PostMapping
-    public ProdajaResponse dodajProdaju(@RequestBody ProdajaRequest request) {
+    public ProdajaResponse dodajProdaju(@Valid @RequestBody ProdajaRequest request) {
         Prodaja prodaja = new Prodaja();
 
         Kupac kupac = new Kupac();
