@@ -1,7 +1,5 @@
 package com.dominik.crm.dto;
 
-import org.hibernate.query.sql.internal.ParameterRecognizerImpl;
-
 import java.time.LocalDate;
 
 public class ProdajaResponse {
